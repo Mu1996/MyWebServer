@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "node ./bin/www"
+    "start": "NODE_ENV=production pm2 start index.js --node-args='--harmony' --name 'nodetest'"
   },
   "dependencies": {
     "body-parser": "~1.17.1",
