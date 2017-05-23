@@ -5,6 +5,9 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
+var config = require('./config/config');
+
+
 var index = require('./routes/index');
 var users = require('./routes/users');
 
@@ -21,6 +24,9 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+
+// 增加本地访问构建后的静态资源
+// app.use('/dist', express.static(path.join(__dirname, 'dist')));
 
 app.use('/', index);
 app.use('/users', users);
